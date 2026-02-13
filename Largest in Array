@@ -1,0 +1,43 @@
+class Solution {
+    public static int largest(int[] arr) {
+        // code here
+        
+        Arrays.sort(arr);
+        
+        int n = arr.length;
+        
+        return arr[n-1];
+    }
+}
+
+
+Alternative solution->
+class Solution {
+    public static int largest(int[] arr) {
+        // code here
+        
+        
+        int n = arr.length;
+        int globalLargest = 0;
+        int largest = 0;
+        
+        if(n == 1){
+            return arr[n-1];
+        }
+        
+        for(int i = 1 ; i< n; i++){
+            
+            if(arr[i-1]>arr[i]){
+               largest = arr[i-1];
+            } else{
+                largest = arr[i];
+            }
+               globalLargest = Math.max(globalLargest,largest);
+        }
+        
+     
+        
+        
+        return globalLargest;
+    }
+}
